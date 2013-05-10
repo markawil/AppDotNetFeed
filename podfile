@@ -1,0 +1,8 @@
+platform :ios, '6.1'
+
+target :AppDotNetFeedTests, :exclusive => true do
+  pod 'OCMock'
+  pod 'NSUnit'
+end
+
+pod 'AFNetworking'
