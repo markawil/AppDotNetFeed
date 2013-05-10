@@ -15,7 +15,12 @@
     self = [super init];
     if (self) {
         
-        
+        _text = dictionary[@"text"];
+        NSDictionary *user = dictionary[@"user"];
+        NSDictionary *avatar = user[@"avatar_image"];
+        NSString *avUrl = avatar[@"url"];
+        _imageUrl = [NSURL URLWithString:avUrl];
+        _authorName = user[@"username"];
     }
     
     return self;
