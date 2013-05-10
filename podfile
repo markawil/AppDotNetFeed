@@ -6,3 +6,4 @@ target :AppDotNetFeedTests, :exclusive => true do
 end
 
 pod 'AFNetworking'
+pod 'SVProgressHUD'

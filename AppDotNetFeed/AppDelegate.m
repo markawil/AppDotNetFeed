@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDotNetService.h"
 
 @implementation AppDelegate
 
@@ -17,7 +18,9 @@
     // globally set NavBars to black
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 
-    FeedViewController *feedViewController = [[FeedViewController alloc] init];
+    _service = [[AppDotNetService alloc] init];
+    FeedViewController *feedViewController = [[FeedViewController alloc] initWithAppDotNetService:_service];
+    _service.delegate = feedViewController;
     _navController = [[UINavigationController alloc] initWithRootViewController:feedViewController];
     self.window.rootViewController = _navController;
     self.window.backgroundColor = [UIColor whiteColor];

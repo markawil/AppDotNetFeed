@@ -2,15 +2,18 @@ PODS:
   - AFNetworking (1.2.1)
   - NSUnit (0.0.1)
   - OCMock (2.1.1)
+  - SVProgressHUD (0.9)
 
 DEPENDENCIES:
   - AFNetworking
   - NSUnit
   - OCMock
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 616da0028916ce296f5c3cef74e5552eb4e10e13
   NSUnit: de79fc63db7641ed2babfde8c17bd2b08362bb51
   OCMock: 79212e5e328378af5cfd6edb5feacfd6c49cd8a3
+  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
 
 COCOAPODS: 0.18.1

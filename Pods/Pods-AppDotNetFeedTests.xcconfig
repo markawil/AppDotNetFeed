@@ -1,7 +1,7 @@
 ALWAYS_SEARCH_USER_PATHS = YES
 HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
 OTHER_LDFLAGS = -ObjC
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/NSUnit" "${PODS_ROOT}/BuildHeaders/OCMock"
+PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/NSUnit" "${PODS_ROOT}/BuildHeaders/OCMock" "${PODS_ROOT}/BuildHeaders/SVProgressHUD"
 PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
-PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/NSUnit" "${PODS_ROOT}/Headers/OCMock"
+PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/NSUnit" "${PODS_ROOT}/Headers/OCMock" "${PODS_ROOT}/Headers/SVProgressHUD"
 PODS_ROOT = ${SRCROOT}/Pods

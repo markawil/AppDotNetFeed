@@ -22,6 +22,10 @@
 		2C09DA5D173C81AC00F9FCDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C09DA5B173C81AC00F9FCDC /* InfoPlist.strings */; };
 		2C09DA6B173D344B00F9FCDC /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA6A173D344B00F9FCDC /* FeedViewController.m */; };
 		2C09DA6E173D346C00F9FCDC /* AppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA6D173D346C00F9FCDC /* AppDelegateTests.m */; };
+		2C09DA71173D452700F9FCDC /* AppDotNetService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA70173D452700F9FCDC /* AppDotNetService.m */; };
+		2C09DA74173D45E800F9FCDC /* FeedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA73173D45E800F9FCDC /* FeedViewControllerTests.m */; };
+		2C09DA78173D518A00F9FCDC /* FeedPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA77173D518A00F9FCDC /* FeedPost.m */; };
+		2C09DA7B173D547A00F9FCDC /* FeedPostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */; };
 		794C7B47115A418DB73D22A9 /* libPods-AppDotNetFeedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 084D10F893D642E9AAF2808D /* libPods-AppDotNetFeedTests.a */; };
 		7C50F871AA23487587EE14F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266DC107264D42E9966A5475 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +65,15 @@
 		2C09DA6A173D344B00F9FCDC /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		2C09DA6C173D346C00F9FCDC /* AppDelegateTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateTests.h; sourceTree = "<group>"; };
 		2C09DA6D173D346C00F9FCDC /* AppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTests.m; sourceTree = "<group>"; };
+		2C09DA6F173D452600F9FCDC /* AppDotNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDotNetService.h; sourceTree = "<group>"; };
+		2C09DA70173D452700F9FCDC /* AppDotNetService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDotNetService.m; sourceTree = "<group>"; };
+		2C09DA72173D45E800F9FCDC /* FeedViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewControllerTests.h; sourceTree = "<group>"; };
+		2C09DA73173D45E800F9FCDC /* FeedViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewControllerTests.m; sourceTree = "<group>"; };
+		2C09DA75173D4AB400F9FCDC /* AppDotNetServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDotNetServiceDelegate.h; sourceTree = "<group>"; };
+		2C09DA76173D518A00F9FCDC /* FeedPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPost.h; sourceTree = "<group>"; };
+		2C09DA77173D518A00F9FCDC /* FeedPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPost.m; sourceTree = "<group>"; };
+		2C09DA79173D547A00F9FCDC /* FeedPostTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTests.h; sourceTree = "<group>"; };
+		2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTests.m; sourceTree = "<group>"; };
 		CCD9AA0CBEA8469EAF9E60FA /* Pods-AppDotNetFeedTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDotNetFeedTests.xcconfig"; path = "Pods/Pods-AppDotNetFeedTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -131,7 +144,12 @@
 				2C09DA44173C81AC00F9FCDC /* AppDelegate.m */,
 				2C09DA69173D344B00F9FCDC /* FeedViewController.h */,
 				2C09DA6A173D344B00F9FCDC /* FeedViewController.m */,
+				2C09DA75173D4AB400F9FCDC /* AppDotNetServiceDelegate.h */,
+				2C09DA6F173D452600F9FCDC /* AppDotNetService.h */,
+				2C09DA70173D452700F9FCDC /* AppDotNetService.m */,
 				2C09DA3B173C81AC00F9FCDC /* Supporting Files */,
+				2C09DA76173D518A00F9FCDC /* FeedPost.h */,
+				2C09DA77173D518A00F9FCDC /* FeedPost.m */,
 			);
 			path = AppDotNetFeed;
 			sourceTree = "<group>";
@@ -156,6 +174,10 @@
 				2C09DA59173C81AC00F9FCDC /* Supporting Files */,
 				2C09DA6C173D346C00F9FCDC /* AppDelegateTests.h */,
 				2C09DA6D173D346C00F9FCDC /* AppDelegateTests.m */,
+				2C09DA72173D45E800F9FCDC /* FeedViewControllerTests.h */,
+				2C09DA73173D45E800F9FCDC /* FeedViewControllerTests.m */,
+				2C09DA79173D547A00F9FCDC /* FeedPostTests.h */,
+				2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */,
 			);
 			path = AppDotNetFeedTests;
 			sourceTree = "<group>";
@@ -341,6 +363,8 @@
 				2C09DA41173C81AC00F9FCDC /* main.m in Sources */,
 				2C09DA45173C81AC00F9FCDC /* AppDelegate.m in Sources */,
 				2C09DA6B173D344B00F9FCDC /* FeedViewController.m in Sources */,
+				2C09DA71173D452700F9FCDC /* AppDotNetService.m in Sources */,
+				2C09DA78173D518A00F9FCDC /* FeedPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +373,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C09DA6E173D346C00F9FCDC /* AppDelegateTests.m in Sources */,
+				2C09DA74173D45E800F9FCDC /* FeedViewControllerTests.m in Sources */,
+				2C09DA7B173D547A00F9FCDC /* FeedPostTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

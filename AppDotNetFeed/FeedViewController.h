@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDotNetService.h"
+#import "AppDotNetServiceDelegate.h"
 
-@interface FeedViewController : UITableViewController
+@interface FeedViewController : UITableViewController <AppDotNetServiceDelegate>
+
+- (id)initWithAppDotNetService:(AppDotNetService *)service;
 
 @end

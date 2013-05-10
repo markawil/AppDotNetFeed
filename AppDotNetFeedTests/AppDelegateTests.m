@@ -9,6 +9,8 @@
 #import "AppDelegateTests.h"
 #import "AppDelegate.h"
 #import "NSUnit.h"
+#import "AppDotNetServiceDelegate.h"
+#import "AppDotNetService.h"
 
 @implementation AppDelegateTests {
     
@@ -37,6 +39,18 @@
     
     id rootController = appDelegate.navController.topViewController;
     [Assert Class:[rootController class] isSameAs:[FeedViewController class]];
+}
+
+- (void)test_appDotNetService_delegate_should_be_feedViewController {
+    
+    id feedViewController = appDelegate.navController.topViewController;
+    [Assert that:appDelegate.service.delegate is:[Equal to:feedViewController]];
+}
+
+- (void)tearDown {
+    
+    [super tearDown];
+    appDelegate = nil;
 }
 
 @end

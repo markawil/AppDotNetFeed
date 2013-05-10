@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "FeedViewController.h"
+#import "AppDotNetService.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navController;
+@property (strong, nonatomic) AppDotNetService *service;
 
 @end
