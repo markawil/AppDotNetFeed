@@ -13,7 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    // globally set NavBars to black
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+
+    FeedViewController *feedViewController = [[FeedViewController alloc] init];
+    _navController = [[UINavigationController alloc] initWithRootViewController:feedViewController];
+    self.window.rootViewController = _navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

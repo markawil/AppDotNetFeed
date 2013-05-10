@@ -39,5 +39,11 @@
 
 + (void) fails:(void (^)(void))expression;
 
+// added by me
++ (void) isTrue:(BOOL) booleanValue;
++ (void) isFalse:(BOOL) booleanValue;
++ (void) isNotNil:(NSObject *)value;
++ (void) Class:(Class)class1 isSameAs:(Class)class2;
+
 @end
 

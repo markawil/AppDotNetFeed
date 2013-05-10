@@ -106,5 +106,34 @@
     }
 }
 
+#pragma mark - Extra assertions I added
+
++ (void) isTrue:(BOOL)booleanValue {
+    
+    if (booleanValue == NO) {
+        [NSException raise:@"NSUnitException" format:@"expected YES but was NO"];
+    }
+}
+
++ (void)isFalse:(BOOL)booleanValue {
+    
+    if (booleanValue == YES) {
+        [NSException raise:@"NSUnitException" format:@"expected NO but was YES"];
+    }
+}
+
++ (void)isNotNil:(NSObject *)value {
+    
+    if (value == nil) {
+        [NSException raise:@"NSUnitException" format:@"expected not nil but was nil"];
+    }
+}
+
++ (void)Class:(Class)class1 isSameAs:(Class)class2 {
+    
+    if (class1 != class2) {
+        [NSException raise:@"NSUnitException" format:@"%@ is not %@", class1, class2];
+    }
+}
 
 @end
