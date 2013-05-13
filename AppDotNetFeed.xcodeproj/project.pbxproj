@@ -33,6 +33,7 @@
 		2C09DA8817413E6400F9FCDC /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C09DA8717413E6400F9FCDC /* response.json */; };
 		2C09DA8B17413E8600F9FCDC /* JSONResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA8A17413E8600F9FCDC /* JSONResponseParser.m */; };
 		2C09DA8E1741419B00F9FCDC /* UnitTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA8D1741419B00F9FCDC /* UnitTestAppDelegate.m */; };
+		2C09DA941741743D00F9FCDC /* FeedPostBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA931741743D00F9FCDC /* FeedPostBuilder.m */; };
 		794C7B47115A418DB73D22A9 /* libPods-AppDotNetFeedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 084D10F893D642E9AAF2808D /* libPods-AppDotNetFeedTests.a */; };
 		7C50F871AA23487587EE14F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266DC107264D42E9966A5475 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,8 @@
 		2C09DA8A17413E8600F9FCDC /* JSONResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONResponseParser.m; sourceTree = "<group>"; };
 		2C09DA8C1741419B00F9FCDC /* UnitTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestAppDelegate.h; sourceTree = "<group>"; };
 		2C09DA8D1741419B00F9FCDC /* UnitTestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitTestAppDelegate.m; sourceTree = "<group>"; };
+		2C09DA921741743D00F9FCDC /* FeedPostBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostBuilder.h; sourceTree = "<group>"; };
+		2C09DA931741743D00F9FCDC /* FeedPostBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostBuilder.m; sourceTree = "<group>"; };
 		CCD9AA0CBEA8469EAF9E60FA /* Pods-AppDotNetFeedTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDotNetFeedTests.xcconfig"; path = "Pods/Pods-AppDotNetFeedTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -208,6 +211,8 @@
 				2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */,
 				2C09DA8417413E2700F9FCDC /* JSONRepsonseParserTests.h */,
 				2C09DA8517413E2700F9FCDC /* JSONRepsonseParserTests.m */,
+				2C09DA921741743D00F9FCDC /* FeedPostBuilder.h */,
+				2C09DA931741743D00F9FCDC /* FeedPostBuilder.m */,
 			);
 			path = AppDotNetFeedTests;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				2C09DA74173D45E800F9FCDC /* FeedViewControllerTests.m in Sources */,
 				2C09DA7B173D547A00F9FCDC /* FeedPostTests.m in Sources */,
 				2C09DA8617413E2800F9FCDC /* JSONRepsonseParserTests.m in Sources */,
+				2C09DA941741743D00F9FCDC /* FeedPostBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

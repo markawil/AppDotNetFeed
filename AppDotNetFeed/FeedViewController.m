@@ -74,19 +74,6 @@
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
 #pragma mark - AppDotNetServiceDelegate methods
 
 - (void)queryForUpdatedFeedFinishedWithFeedPosts:(NSArray *)posts {
@@ -95,15 +82,29 @@
         _items = [NSMutableArray array];
     }
     
-    [_items removeAllObjects];
+    // we'll only allow 100 posts at a time in the TableView
+    // this will work like a queue of the oldest being bumped out by the newest
+    if ([_items count] == 100) {
+        [self removeLast20Items];
+    }
+    
     [_items addObjectsFromArray:posts];
+    [self sortPostsByDate:_items];
     [self.tableView reloadData];
 }
 
-- (void)sortPostsByDate {
+- (void)sortPostsByDate:(NSMutableArray *)feedPosts {
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"dateOfPost" ascending:NO];
-    [_items sortUsingDescriptors: [NSArray arrayWithObject: sortDescriptor]];
+    [feedPosts sortUsingDescriptors: [NSArray arrayWithObject: sortDescriptor]];
+}
+
+- (void)removeLast20Items {
+    
+    NSRange range;
+    range.location = 79;
+    range.length = 20;
+    [_items removeObjectsInRange:range];
 }
 
 @end

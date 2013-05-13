@@ -71,7 +71,7 @@
     return cell;
 }
 
-- (void)setDateLabelWithDate:(NSDate *)date {
+- (void)setDateLabelWithDate:(NSDate *)dateOfPost {
     
     if (self.dateLabel == nil) {
         
@@ -84,10 +84,17 @@
         [self.contentView addSubview:self.dateLabel];
     }
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM-dd-yy"];
-    NSString *dateString = [dateFormatter stringFromDate:date];
-    self.dateLabel.text = dateString;
+    NSDate *dateNow = [NSDate date];
+    NSTimeInterval distanceBetweenDates = [dateNow timeIntervalSinceDate:dateOfPost];
+    int minutes = round(distanceBetweenDates/60);
+    int seconds = round(distanceBetweenDates);
+    
+    if (minutes > 0) {
+        self.dateLabel.text = [NSString stringWithFormat:@"%i min", minutes];
+    }
+    else {
+        self.dateLabel.text = [NSString stringWithFormat:@"%i sec", seconds];
+    }
 }
 
 + (CGFloat)heightForFeedPost:(FeedPost *)feedPost {
