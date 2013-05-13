@@ -27,7 +27,7 @@
         self.textLabel.font  = [UIFont boldSystemFontOfSize:13];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.detailTextLabel.font = [FeedPostTableViewCell detailTextLabelFont];
-        self.detailTextLabel.numberOfLines = 4;
+        self.detailTextLabel.numberOfLines = 7;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     
@@ -35,11 +35,12 @@
 }
 
 // needed to align the imageviews in the cells
+// and set the imageview size
 - (void)layoutSubviews {
     
     [super layoutSubviews];
     CGRect cvf = self.contentView.frame;
-    self.imageView.frame = CGRectMake(5, 10, 60, 60);
+    self.imageView.frame = CGRectMake(5, MARGIN, 60, 60);
     
     CGRect frame = CGRectMake(cvf.size.height + MARGIN,
                               self.textLabel.frame.origin.y,
@@ -98,7 +99,6 @@
     sampleCell.textLabel.text = feedPost.authorName;
     sampleCell.detailTextLabel.text = feedPost.text;
     sampleCell.imageView.image = [UIImage imageNamed:@"portrait_placeholder"];
-    
     [sampleCell layoutSubviews];
     
     //calculate the sizes of the text labels
