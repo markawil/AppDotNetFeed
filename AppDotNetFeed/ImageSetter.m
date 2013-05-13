@@ -16,12 +16,12 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     UIImage *placeHolder = [UIImage imageNamed:@"portrait_placeholder"];
-    imageView.clipsToBounds = YES;
-    __weak UIImageView *weakImage = imageView;
+    __weak UIImageView *weakImageView = imageView;
     
     [imageView setImageWithURLRequest:request placeholderImage:placeHolder success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         
-        weakImage.image = [self makeRoundedImage:image radius:13.0];
+        weakImageView.image = [self makeRoundedImage:image radius:13.0];
+        weakImageView.clipsToBounds = YES;
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         NSLog(@"couldn't load image: %@", [error localizedDescription]);

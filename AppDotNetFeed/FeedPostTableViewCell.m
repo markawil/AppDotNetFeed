@@ -40,15 +40,16 @@
     
     [super layoutSubviews];
     CGRect cvf = self.contentView.frame;
-    self.imageView.frame = CGRectMake(5, MARGIN, 60, 60);
+    CGRect imageFrame = CGRectMake(5, MARGIN, 60, 60);
+    self.imageView.frame = imageFrame;
     
-    CGRect frame = CGRectMake(cvf.size.height + MARGIN,
+    CGRect frame = CGRectMake(imageFrame.size.width + MARGIN + 2,
                               self.textLabel.frame.origin.y,
                               cvf.size.width - cvf.size.height - 2*MARGIN,
                               self.textLabel.frame.size.height);
     self.textLabel.frame = frame;
     
-    frame = CGRectMake(cvf.size.height + MARGIN,
+    frame = CGRectMake(imageFrame.size.width + MARGIN + 5,
                        self.detailTextLabel.frame.origin.y,
                        cvf.size.width - cvf.size.height - 2*MARGIN,
                        self.detailTextLabel.frame.size.height);
@@ -110,10 +111,11 @@
                               constrainedToSize:sampleCell.detailTextLabel.frame.size
                                   lineBreakMode:NSLineBreakByWordWrapping];
     
-    NSLog(@"textSize height was: %f", textSize.height);
-    NSLog(@"textSize width was: %f", textSize.width);
+    float totalHeight = authorNameSize.height + textSize.height;
+    NSLog(@"textSize height was: %f", totalHeight);
+   // NSLog(@"textSize width was: %f", textSize.width);
     CGFloat minHeight = 60 + 20;  //image height and margin should be the minimum
-    return MAX(authorNameSize.height + textSize.height, minHeight);
+    return MAX(authorNameSize.height + textSize.height + 25, minHeight);
 }
 
 + (UIFont *)detailTextLabelFont {

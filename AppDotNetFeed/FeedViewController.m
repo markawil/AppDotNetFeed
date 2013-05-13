@@ -22,7 +22,7 @@
 
 - (id)initWithAppDotNetService:(AppDotNetService *)service {
     
-    self = [super init];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         _service = service;
         self.title = @"App.net Feed";
@@ -34,6 +34,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
+    
+    [_service queryForUpdatedFeed];
+}
+
+- (void)refresh:(id)sender {
+    
+    [(UIRefreshControl *)sender endRefreshing];
     [_service queryForUpdatedFeed];
 }
 
@@ -87,6 +98,12 @@
     [_items removeAllObjects];
     [_items addObjectsFromArray:posts];
     [self.tableView reloadData];
+}
+
+- (void)sortPostsByDate {
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey: @"dateOfPost" ascending:NO];
+    [_items sortUsingDescriptors: [NSArray arrayWithObject: sortDescriptor]];
 }
 
 @end
