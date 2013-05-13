@@ -10,4 +10,6 @@
 
 @protocol AppDotNetServiceDelegate <NSObject>
 
+- (void)queryForUpdatedFeedFinishedWithFeedPosts:(NSArray *)posts;
+
 @end

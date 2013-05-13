@@ -42,8 +42,13 @@
 - (void)test_viewDidLoad_should_call_appDotNetService_queryForUpdatedFeed {
     
     [[_appDotNetService expect] queryForUpdatedFeed];
-    [_feedVC_SUT view];
+    [_feedVC_SUT viewDidLoad];
     [_appDotNetService verify];
+}
+
+- (void)test_queryForUpdatedFeedFinishedWithFeedPosts_should_set_tableViewCells_with_postData {
+    
+    
 }
 
 - (void)tearDown {

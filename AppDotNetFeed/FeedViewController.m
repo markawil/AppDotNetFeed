@@ -69,4 +69,11 @@
      */
 }
 
+#pragma mark - AppDotNetServiceDelegate methods
+
+- (void)queryForUpdatedFeedFinishedWithFeedPosts:(NSArray *)posts {
+    
+    
+}
+
 @end

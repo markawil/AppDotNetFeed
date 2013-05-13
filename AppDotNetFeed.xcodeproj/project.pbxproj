@@ -26,6 +26,8 @@
 		2C09DA74173D45E800F9FCDC /* FeedViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA73173D45E800F9FCDC /* FeedViewControllerTests.m */; };
 		2C09DA78173D518A00F9FCDC /* FeedPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA77173D518A00F9FCDC /* FeedPost.m */; };
 		2C09DA7B173D547A00F9FCDC /* FeedPostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */; };
+		2C09DA7E17407DCF00F9FCDC /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA7D17407DCF00F9FCDC /* FeedPostTableViewCell.m */; };
+		2C09DA81174080E300F9FCDC /* ImageSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA80174080E300F9FCDC /* ImageSetter.m */; };
 		794C7B47115A418DB73D22A9 /* libPods-AppDotNetFeedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 084D10F893D642E9AAF2808D /* libPods-AppDotNetFeedTests.a */; };
 		7C50F871AA23487587EE14F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266DC107264D42E9966A5475 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,10 @@
 		2C09DA77173D518A00F9FCDC /* FeedPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPost.m; sourceTree = "<group>"; };
 		2C09DA79173D547A00F9FCDC /* FeedPostTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTests.h; sourceTree = "<group>"; };
 		2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTests.m; sourceTree = "<group>"; };
+		2C09DA7C17407DCF00F9FCDC /* FeedPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedPostTableViewCell.h; sourceTree = "<group>"; };
+		2C09DA7D17407DCF00F9FCDC /* FeedPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedPostTableViewCell.m; sourceTree = "<group>"; };
+		2C09DA7F174080E300F9FCDC /* ImageSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSetter.h; sourceTree = "<group>"; };
+		2C09DA80174080E300F9FCDC /* ImageSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSetter.m; sourceTree = "<group>"; };
 		CCD9AA0CBEA8469EAF9E60FA /* Pods-AppDotNetFeedTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDotNetFeedTests.xcconfig"; path = "Pods/Pods-AppDotNetFeedTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -150,6 +156,10 @@
 				2C09DA3B173C81AC00F9FCDC /* Supporting Files */,
 				2C09DA76173D518A00F9FCDC /* FeedPost.h */,
 				2C09DA77173D518A00F9FCDC /* FeedPost.m */,
+				2C09DA7C17407DCF00F9FCDC /* FeedPostTableViewCell.h */,
+				2C09DA7D17407DCF00F9FCDC /* FeedPostTableViewCell.m */,
+				2C09DA7F174080E300F9FCDC /* ImageSetter.h */,
+				2C09DA80174080E300F9FCDC /* ImageSetter.m */,
 			);
 			path = AppDotNetFeed;
 			sourceTree = "<group>";
@@ -365,6 +375,8 @@
 				2C09DA6B173D344B00F9FCDC /* FeedViewController.m in Sources */,
 				2C09DA71173D452700F9FCDC /* AppDotNetService.m in Sources */,
 				2C09DA78173D518A00F9FCDC /* FeedPost.m in Sources */,
+				2C09DA7E17407DCF00F9FCDC /* FeedPostTableViewCell.m in Sources */,
+				2C09DA81174080E300F9FCDC /* ImageSetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

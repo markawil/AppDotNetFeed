@@ -55,8 +55,9 @@
     int month = [components month];
     int year = [components year];
     
-    
-
+    [Assert that:[The int:day] is:[Equal to:[The int:10]]];
+    [Assert that:[The int:month] is:[Equal to:[The int:5]]];
+    [Assert that:[The int:year] is:[Equal to:[The int:2013]]];
 }
 
 - (void)tearDown {
