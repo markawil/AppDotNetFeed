@@ -10,6 +10,6 @@
 
 @interface FeedPostBuilder : NSObject
 
-- (NSArray *)buildStubbedArrayOfPosts;
++ (NSArray *)buildStubbedArrayOfPosts;
 
 @end

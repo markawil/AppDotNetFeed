@@ -14,6 +14,7 @@
 #import "OCMArg.h"
 #import "AppDotNetService.h"
 #import "AppDotNetServiceDelegate.h"
+#import "FeedPostBuilder.h"
 
 @implementation FeedViewControllerTests {
     
@@ -53,7 +54,24 @@
 
 - (void)test_queryForUpdatedFeedFinishedWithFeedPosts_should_set_tableViewCells_with_postData {
     
+    NSArray *stubbedPostsArray = [FeedPostBuilder buildStubbedArrayOfPosts];
+    [_feedVC_SUT queryForUpdatedFeedFinishedWithFeedPosts:stubbedPostsArray];
     
+    // we know the stubbedArray will be 20 posts long, test by seeing if there are the amount of
+    // cells for the amount of posts returned
+    for (int i = 0; i < [stubbedPostsArray count]; i++) {
+        
+        NSIndexPath *path = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell *cell = [_feedVC_SUT tableView:nil cellForRowAtIndexPath:path];
+        NSString *expectedDetailTextLabel = [NSString stringWithFormat:@"here's my post number %i", i];
+        NSString *expectedTextLabel = [NSString stringWithFormat:@"author %i", i];
+        
+        // test that the detailTextLabel was set
+        [Assert that:cell.detailTextLabel.text is:[Equal to:expectedDetailTextLabel]];
+        
+        // test that the textLabel text was set
+        [Assert that:cell.textLabel.text is:[Equal to:expectedTextLabel]];
+    }
 }
 
 - (void)tearDown {
