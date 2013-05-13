@@ -29,6 +29,10 @@
 		2C09DA7E17407DCF00F9FCDC /* FeedPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA7D17407DCF00F9FCDC /* FeedPostTableViewCell.m */; };
 		2C09DA81174080E300F9FCDC /* ImageSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA80174080E300F9FCDC /* ImageSetter.m */; };
 		2C09DA83174139C500F9FCDC /* portrait_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C09DA82174139C500F9FCDC /* portrait_placeholder.png */; };
+		2C09DA8617413E2800F9FCDC /* JSONRepsonseParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA8517413E2700F9FCDC /* JSONRepsonseParserTests.m */; };
+		2C09DA8817413E6400F9FCDC /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C09DA8717413E6400F9FCDC /* response.json */; };
+		2C09DA8B17413E8600F9FCDC /* JSONResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA8A17413E8600F9FCDC /* JSONResponseParser.m */; };
+		2C09DA8E1741419B00F9FCDC /* UnitTestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C09DA8D1741419B00F9FCDC /* UnitTestAppDelegate.m */; };
 		794C7B47115A418DB73D22A9 /* libPods-AppDotNetFeedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 084D10F893D642E9AAF2808D /* libPods-AppDotNetFeedTests.a */; };
 		7C50F871AA23487587EE14F6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266DC107264D42E9966A5475 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -82,6 +86,13 @@
 		2C09DA7F174080E300F9FCDC /* ImageSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSetter.h; sourceTree = "<group>"; };
 		2C09DA80174080E300F9FCDC /* ImageSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSetter.m; sourceTree = "<group>"; };
 		2C09DA82174139C500F9FCDC /* portrait_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portrait_placeholder.png; sourceTree = "<group>"; };
+		2C09DA8417413E2700F9FCDC /* JSONRepsonseParserTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepsonseParserTests.h; sourceTree = "<group>"; };
+		2C09DA8517413E2700F9FCDC /* JSONRepsonseParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONRepsonseParserTests.m; sourceTree = "<group>"; };
+		2C09DA8717413E6400F9FCDC /* response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
+		2C09DA8917413E8600F9FCDC /* JSONResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONResponseParser.h; sourceTree = "<group>"; };
+		2C09DA8A17413E8600F9FCDC /* JSONResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONResponseParser.m; sourceTree = "<group>"; };
+		2C09DA8C1741419B00F9FCDC /* UnitTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTestAppDelegate.h; sourceTree = "<group>"; };
+		2C09DA8D1741419B00F9FCDC /* UnitTestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitTestAppDelegate.m; sourceTree = "<group>"; };
 		CCD9AA0CBEA8469EAF9E60FA /* Pods-AppDotNetFeedTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDotNetFeedTests.xcconfig"; path = "Pods/Pods-AppDotNetFeedTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -162,6 +173,10 @@
 				2C09DA7D17407DCF00F9FCDC /* FeedPostTableViewCell.m */,
 				2C09DA7F174080E300F9FCDC /* ImageSetter.h */,
 				2C09DA80174080E300F9FCDC /* ImageSetter.m */,
+				2C09DA8917413E8600F9FCDC /* JSONResponseParser.h */,
+				2C09DA8A17413E8600F9FCDC /* JSONResponseParser.m */,
+				2C09DA8C1741419B00F9FCDC /* UnitTestAppDelegate.h */,
+				2C09DA8D1741419B00F9FCDC /* UnitTestAppDelegate.m */,
 			);
 			path = AppDotNetFeed;
 			sourceTree = "<group>";
@@ -191,6 +206,8 @@
 				2C09DA73173D45E800F9FCDC /* FeedViewControllerTests.m */,
 				2C09DA79173D547A00F9FCDC /* FeedPostTests.h */,
 				2C09DA7A173D547A00F9FCDC /* FeedPostTests.m */,
+				2C09DA8417413E2700F9FCDC /* JSONRepsonseParserTests.h */,
+				2C09DA8517413E2700F9FCDC /* JSONRepsonseParserTests.m */,
 			);
 			path = AppDotNetFeedTests;
 			sourceTree = "<group>";
@@ -198,6 +215,7 @@
 		2C09DA59173C81AC00F9FCDC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2C09DA8717413E6400F9FCDC /* response.json */,
 				2C09DA5A173C81AC00F9FCDC /* AppDotNetFeedTests-Info.plist */,
 				2C09DA5B173C81AC00F9FCDC /* InfoPlist.strings */,
 			);
@@ -292,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C09DA5D173C81AC00F9FCDC /* InfoPlist.strings in Resources */,
+				2C09DA8817413E6400F9FCDC /* response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +400,8 @@
 				2C09DA78173D518A00F9FCDC /* FeedPost.m in Sources */,
 				2C09DA7E17407DCF00F9FCDC /* FeedPostTableViewCell.m in Sources */,
 				2C09DA81174080E300F9FCDC /* ImageSetter.m in Sources */,
+				2C09DA8B17413E8600F9FCDC /* JSONResponseParser.m in Sources */,
+				2C09DA8E1741419B00F9FCDC /* UnitTestAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +412,7 @@
 				2C09DA6E173D346C00F9FCDC /* AppDelegateTests.m in Sources */,
 				2C09DA74173D45E800F9FCDC /* FeedViewControllerTests.m in Sources */,
 				2C09DA7B173D547A00F9FCDC /* FeedPostTests.m in Sources */,
+				2C09DA8617413E2800F9FCDC /* JSONRepsonseParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

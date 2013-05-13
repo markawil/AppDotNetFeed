@@ -13,7 +13,20 @@
 
 #define URL_PATH @"https://alpha-api.app.net/stream/0/posts/stream/global"
 
-@implementation AppDotNetService
+@implementation AppDotNetService {
+    
+    JSONResponseParser *_parser;
+}
+
+- (id)initWithJSONParser:(JSONResponseParser *)parser {
+    
+    self = [super init];
+    if (self) {
+        _parser = parser;
+    }
+    
+    return self;
+}
 
 - (void)queryForUpdatedFeed {
     
@@ -35,15 +48,8 @@
 
 - (void)handleSuccessJSONResponse:(id)JSON {
     
-    NSArray *arrayFromJSON = [JSON objectForKey:@"data"];
-    NSMutableArray *arrayOfPosts = [NSMutableArray array];
-    
-    for (NSDictionary *d in arrayFromJSON) {
-        FeedPost *feedPost = [[FeedPost alloc] initWithDictionary:d];
-        [arrayOfPosts addObject:feedPost];
-    }
-    
-    [self.delegate queryForUpdatedFeedFinishedWithFeedPosts:arrayOfPosts];
+    NSArray *posts = [_parser parseJSONgetBackArrayOfFeedPosts:JSON];
+    [self.delegate queryForUpdatedFeedFinishedWithFeedPosts:posts];
     [SVProgressHUD dismiss];
 }
 

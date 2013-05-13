@@ -2,4 +2,5 @@
 #define __COCOA_PODS
 
 #define __POD_AFNetworking
+#define __POD_JSONKit
 #define __POD_SVProgressHUD

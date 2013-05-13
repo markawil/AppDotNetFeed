@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDotNetService.h"
+#import "JSONResponseParser.h"
 
 @implementation AppDelegate
 
@@ -18,7 +19,8 @@
     // globally set NavBars to black
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 
-    _service = [[AppDotNetService alloc] init];
+    JSONResponseParser *parser = [JSONResponseParser new];
+    _service = [[AppDotNetService alloc] initWithJSONParser:parser];
     FeedViewController *feedViewController = [[FeedViewController alloc] initWithAppDotNetService:_service];
     _service.delegate = feedViewController;
     _navController = [[UINavigationController alloc] initWithRootViewController:feedViewController];

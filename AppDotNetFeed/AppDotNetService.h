@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AppDotNetServiceDelegate.h"
+#import "JSONResponseParser.h"
 
 @interface AppDotNetService : NSObject
+
+- (id)initWithJSONParser:(JSONResponseParser *)parser;
 
 @property (weak, nonatomic) id<AppDotNetServiceDelegate> delegate;
 
