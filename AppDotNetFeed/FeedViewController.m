@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         _service = service;
+        self.title = @"App.net Feed";
     }
     
     return self;

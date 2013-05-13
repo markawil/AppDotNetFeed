@@ -28,6 +28,11 @@
     _feedVC_SUT = [[FeedViewController alloc] initWithAppDotNetService:_appDotNetService];
 }
 
+- (void)test_feedViewController_should_set_title_correctly {
+    
+    [Assert that:_feedVC_SUT.title is:[Equal to:@"App.net Feed"]];
+}
+
 - (void)test_feedViewController_should_inherit_from_UITableViewController {
     
     [Assert isTrue:[[FeedViewController class] isSubclassOfClass:[UITableViewController class]]];
