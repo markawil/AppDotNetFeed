@@ -23,28 +23,39 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-        NSArray *arrayFromJSON = [JSON objectForKey:@"data"];
-        NSMutableArray *arrayOfPosts = [NSMutableArray array];
-        
-        for (NSDictionary *d in arrayFromJSON) {
-            FeedPost *feedPost = [[FeedPost alloc] initWithDictionary:d];
-            [arrayOfPosts addObject:feedPost];
-        }
-        
-        [self.delegate queryForUpdatedFeedFinishedWithFeedPosts:arrayOfPosts];
+        [self handleSuccessJSONResponse:JSON];
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         
-        [SVProgressHUD dismiss];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:[error localizedDescription]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil, nil];
-        [alertView show];
+        [self handleErrorFromRequest:error];
     }];
     
     [operation start];
+}
+
+- (void)handleSuccessJSONResponse:(id)JSON {
+    
+    NSArray *arrayFromJSON = [JSON objectForKey:@"data"];
+    NSMutableArray *arrayOfPosts = [NSMutableArray array];
+    
+    for (NSDictionary *d in arrayFromJSON) {
+        FeedPost *feedPost = [[FeedPost alloc] initWithDictionary:d];
+        [arrayOfPosts addObject:feedPost];
+    }
+    
+    [self.delegate queryForUpdatedFeedFinishedWithFeedPosts:arrayOfPosts];
+    [SVProgressHUD dismiss];
+}
+
+- (void)handleErrorFromRequest:(NSError *)error {
+    
+    [SVProgressHUD dismiss];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[error localizedDescription]
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 @end
