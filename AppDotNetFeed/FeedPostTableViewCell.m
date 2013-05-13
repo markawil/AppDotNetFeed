@@ -38,7 +38,20 @@
 - (void)layoutSubviews {
     
     [super layoutSubviews];
+    CGRect cvf = self.contentView.frame;
     self.imageView.frame = CGRectMake(5, 10, 60, 60);
+    
+    CGRect frame = CGRectMake(cvf.size.height + MARGIN,
+                              self.textLabel.frame.origin.y,
+                              cvf.size.width - cvf.size.height - 2*MARGIN,
+                              self.textLabel.frame.size.height);
+    self.textLabel.frame = frame;
+    
+    frame = CGRectMake(cvf.size.height + MARGIN,
+                       self.detailTextLabel.frame.origin.y,
+                       cvf.size.width - cvf.size.height - 2*MARGIN,
+                       self.detailTextLabel.frame.size.height);
+    self.detailTextLabel.frame = frame;
 }
 
 
