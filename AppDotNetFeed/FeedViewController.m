@@ -7,6 +7,8 @@
 //
 
 #import "FeedViewController.h"
+#import "FeedPostTableViewCell.h"
+#import "FeedPost.h"
 
 @interface FeedViewController ()
 
@@ -47,13 +49,17 @@
     return [_items count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    FeedPost *feedPost = [_items objectAtIndex:indexPath.row];
+    return [FeedPostTableViewCell heightForFeedPost:feedPost];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    FeedPostTableViewCell *cell = [FeedPostTableViewCell cellForTableView:tableView];
+    FeedPost *feedPost = [_items objectAtIndex:indexPath.row];
+    [cell updateCellForVideo:feedPost];
     return cell;
 }
 
@@ -74,7 +80,13 @@
 
 - (void)queryForUpdatedFeedFinishedWithFeedPosts:(NSArray *)posts {
     
+    if (_items == nil) {
+        _items = [NSMutableArray array];
+    }
     
+    [_items removeAllObjects];
+    [_items addObjectsFromArray:posts];
+    [self.tableView reloadData];
 }
 
 @end

@@ -12,7 +12,7 @@
 @interface FeedPostTableViewCell : UITableViewCell
 
 + (FeedPostTableViewCell *)cellForTableView:(UITableView *)tableView;
-+ (CGFloat)heightForVideo:(FeedPost *)feedPost;
++ (CGFloat)heightForFeedPost:(FeedPost *)feedPost;
 - (void)updateCellForVideo:(FeedPost *)feedPost;
 
 @end

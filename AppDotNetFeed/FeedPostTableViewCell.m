@@ -26,12 +26,37 @@
         
         self.textLabel.font  = [UIFont boldSystemFontOfSize:14];
         
-        self.detailTextLabel.font = [UIFont systemFontOfSize:13];
-        self.textLabel.numberOfLines = 2;
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.detailTextLabel.font = [FeedPostTableViewCell textLabelFont];
+        self.detailTextLabel.numberOfLines = 4;
     }
+    
     return self;
 }
+
+// needed to align the imageviews in the cells
+- (void)layoutSubviews {
+    
+    [super layoutSubviews];
+    CGRect cvf = self.contentView.frame;
+    self.imageView.frame = CGRectMake(0.0,
+                                      0.0,
+                                      cvf.size.height-1,
+                                      cvf.size.height-1);
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    CGRect frame = CGRectMake(cvf.size.height + MARGIN,
+                              self.textLabel.frame.origin.y,
+                              cvf.size.width - cvf.size.height - 2*MARGIN,
+                              self.textLabel.frame.size.height);
+    self.textLabel.frame = frame;
+    
+    frame = CGRectMake(cvf.size.height + MARGIN,
+                       self.detailTextLabel.frame.origin.y,
+                       cvf.size.width - cvf.size.height - 2*MARGIN,
+                       self.detailTextLabel.frame.size.height);
+    self.detailTextLabel.frame = frame;
+}
+
 
 + (FeedPostTableViewCell *)cellForTableView:(UITableView *)tableView {
     
@@ -66,7 +91,7 @@
     self.dateLabel.text = dateString;
 }
 
-+ (CGFloat)heightForVideo:(FeedPost *)feedPost {
++ (CGFloat)heightForFeedPost:(FeedPost *)feedPost {
     
     //create a dummy cell
     FeedPostTableViewCell *sampleCell  = [[FeedPostTableViewCell alloc]
@@ -78,7 +103,7 @@
     CGSize textSize = [feedPost.text sizeWithFont: [FeedPostTableViewCell textLabelFont]
                               constrainedToSize:sampleCell.textLabel.frame.size
                                   lineBreakMode:UILineBreakModeWordWrap];
-    CGFloat minHeight = 61 + 10;  //image height + margin
+    CGFloat minHeight = 71 + 10;  //image height + margin
     return MAX(textSize.height + 20, minHeight);
 }
 

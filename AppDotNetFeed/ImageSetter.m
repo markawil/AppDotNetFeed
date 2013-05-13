@@ -15,13 +15,13 @@
 + (void)setImageView:(UIImageView *)imageView fromURL:(NSURL *)url {
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeHolder = [UIImage imageNamed:@"Logo"];
+    UIImage *placeHolder = [UIImage imageNamed:@"portrait_placeholder"];
     imageView.clipsToBounds = YES;
     __weak UIImageView *weakImage = imageView;
     
     [imageView setImageWithURLRequest:request placeholderImage:placeHolder success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         
-        weakImage.image = [self makeRoundedImage:image radius:10.0];
+        weakImage.image = [self makeRoundedImage:image radius:13.0];
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         NSLog(@"couldn't load image: %@", [error localizedDescription]);
