@@ -24,10 +24,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.textLabel.font  = [UIFont boldSystemFontOfSize:14];
-        
-        self.detailTextLabel.font = [FeedPostTableViewCell textLabelFont];
+        self.textLabel.font  = [UIFont boldSystemFontOfSize:13];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.detailTextLabel.font = [FeedPostTableViewCell detailTextLabelFont];
         self.detailTextLabel.numberOfLines = 4;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     
     return self;
@@ -37,24 +38,7 @@
 - (void)layoutSubviews {
     
     [super layoutSubviews];
-    CGRect cvf = self.contentView.frame;
-    self.imageView.frame = CGRectMake(0.0,
-                                      0.0,
-                                      cvf.size.height-1,
-                                      cvf.size.height-1);
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    CGRect frame = CGRectMake(cvf.size.height + MARGIN,
-                              self.textLabel.frame.origin.y,
-                              cvf.size.width - cvf.size.height - 2*MARGIN,
-                              self.textLabel.frame.size.height);
-    self.textLabel.frame = frame;
-    
-    frame = CGRectMake(cvf.size.height + MARGIN,
-                       self.detailTextLabel.frame.origin.y,
-                       cvf.size.width - cvf.size.height - 2*MARGIN,
-                       self.detailTextLabel.frame.size.height);
-    self.detailTextLabel.frame = frame;
+    self.imageView.frame = CGRectMake(5, 10, 60, 60);
 }
 
 
@@ -78,7 +62,7 @@
         
         float xValue = self.frame.size.width - 70;
         // create a custom label:                                    x       y   width  height
-        self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(xValue, 50.0f, 80, 12.0f)];
+        self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(xValue, 5.0f, 80, 12.0f)];
         self.dateLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
         [self.dateLabel setFont:[UIFont boldSystemFontOfSize:13.0]];
         self.dateLabel.textColor = [UIColor colorWithRed:0.000 green:0.502 blue:1.000 alpha:1.000];
@@ -94,26 +78,37 @@
 + (CGFloat)heightForFeedPost:(FeedPost *)feedPost {
     
     //create a dummy cell
-    FeedPostTableViewCell *sampleCell  = [[FeedPostTableViewCell alloc]
+    FeedPostTableViewCell *sampleCell = [[FeedPostTableViewCell alloc]
                                        initWithStyle:UITableViewCellStyleSubtitle
                                        reuseIdentifier:nil];
-    [sampleCell updateCellForVideo:feedPost];
+    
+    sampleCell.textLabel.text = feedPost.authorName;
+    sampleCell.detailTextLabel.text = feedPost.text;
+    sampleCell.imageView.image = [UIImage imageNamed:@"portrait_placeholder"];
+    
+    [sampleCell layoutSubviews];
     
     //calculate the sizes of the text labels
-    CGSize textSize = [feedPost.text sizeWithFont: [FeedPostTableViewCell textLabelFont]
-                              constrainedToSize:sampleCell.textLabel.frame.size
-                                  lineBreakMode:UILineBreakModeWordWrap];
-    CGFloat minHeight = 71 + 10;  //image height + margin
-    return MAX(textSize.height + 20, minHeight);
+    CGSize authorNameSize = [feedPost.authorName sizeWithFont: [UIFont boldSystemFontOfSize:13]
+                                   constrainedToSize:sampleCell.textLabel.frame.size
+                                       lineBreakMode:NSLineBreakByTruncatingHead];
+    
+    CGSize textSize = [feedPost.text sizeWithFont: [FeedPostTableViewCell detailTextLabelFont]
+                              constrainedToSize:sampleCell.detailTextLabel.frame.size
+                                  lineBreakMode:NSLineBreakByWordWrapping];
+    
+    NSLog(@"textSize height was: %f", textSize.height);
+    NSLog(@"textSize width was: %f", textSize.width);
+    CGFloat minHeight = 60 + 20;  //image height and margin should be the minimum
+    return MAX(authorNameSize.height + textSize.height, minHeight);
 }
 
-+ (UIFont *)textLabelFont {
++ (UIFont *)detailTextLabelFont {
     return [UIFont systemFontOfSize:12];
 }
 
 - (void)updateCellForVideo:(FeedPost *)feedPost {
     
-    // set the text to the date with the tweet text
     self.textLabel.text = feedPost.authorName;
     self.detailTextLabel.text = feedPost.text;
     [self setDateLabelWithDate:feedPost.dateOfPost];
