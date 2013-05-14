@@ -118,10 +118,7 @@
                               constrainedToSize:sampleCell.detailTextLabel.frame.size
                                   lineBreakMode:NSLineBreakByWordWrapping];
     
-    float totalHeight = authorNameSize.height + textSize.height;
-    NSLog(@"textSize height was: %f", totalHeight);
-   // NSLog(@"textSize width was: %f", textSize.width);
-    CGFloat minHeight = 60 + 20;  //image height and margin should be the minimum
+    CGFloat minHeight = 60 + 25;  //image height and margin should be the minimum
     return MAX(authorNameSize.height + textSize.height + 25, minHeight);
 }
 
