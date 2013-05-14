@@ -10,6 +10,10 @@
 #import "ImageSetter.h"
 
 #define MARGIN 10
+#define DETAIL_WIDTH 220.0f
+#define CELL_CONTENT_WIDTH 320.0f
+#define CELL_CONTENT_MARGIN 10.0f
+#define FONT_SIZE 12.0f
 
 @interface FeedPostTableViewCell ()
 
@@ -24,7 +28,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.textLabel.font  = [UIFont boldSystemFontOfSize:13];
+        self.textLabel.font  = [FeedPostTableViewCell textLabelFont];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.detailTextLabel.font = [FeedPostTableViewCell detailTextLabelFont];
         self.detailTextLabel.numberOfLines = 7;
@@ -39,10 +43,10 @@
 - (void)layoutSubviews {
     
     [super layoutSubviews];
-    CGRect cvf = self.contentView.frame;
     CGRect imageFrame = CGRectMake(5, MARGIN, 60, 60);
     self.imageView.frame = imageFrame;
     
+    CGRect cvf = self.contentView.frame;
     CGRect frame = CGRectMake(imageFrame.size.width + MARGIN + 2,
                               self.textLabel.frame.origin.y,
                               cvf.size.width - cvf.size.height - 2*MARGIN,
@@ -51,11 +55,11 @@
     
     frame = CGRectMake(imageFrame.size.width + MARGIN + 5,
                        self.detailTextLabel.frame.origin.y,
-                       cvf.size.width - cvf.size.height - 2*MARGIN,
+                       DETAIL_WIDTH,
                        self.detailTextLabel.frame.size.height);
+    
     self.detailTextLabel.frame = frame;
 }
-
 
 + (FeedPostTableViewCell *)cellForTableView:(UITableView *)tableView {
     
@@ -99,27 +103,15 @@
 
 + (CGFloat)heightForFeedPost:(FeedPost *)feedPost {
     
-    //create a dummy cell
-    FeedPostTableViewCell *sampleCell = [[FeedPostTableViewCell alloc]
-                                       initWithStyle:UITableViewCellStyleSubtitle
-                                       reuseIdentifier:nil];
+    CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+    CGSize size = [feedPost.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];    
+    CGFloat height = MAX(size.height, 44.0f);
     
-    sampleCell.textLabel.text = feedPost.authorName;
-    sampleCell.detailTextLabel.text = feedPost.text;
-    sampleCell.imageView.image = [UIImage imageNamed:@"portrait_placeholder"];
-    [sampleCell layoutSubviews];
-    
-    //calculate the sizes of the text labels
-    CGSize authorNameSize = [feedPost.authorName sizeWithFont: [UIFont boldSystemFontOfSize:13]
-                                   constrainedToSize:sampleCell.textLabel.frame.size
-                                       lineBreakMode:NSLineBreakByTruncatingHead];
-    
-    CGSize textSize = [feedPost.text sizeWithFont: [FeedPostTableViewCell detailTextLabelFont]
-                              constrainedToSize:sampleCell.detailTextLabel.frame.size
-                                  lineBreakMode:NSLineBreakByWordWrapping];
-    
-    CGFloat minHeight = 60 + 25;  //image height and margin should be the minimum
-    return MAX(authorNameSize.height + textSize.height + 25, minHeight);
+    return height + (CELL_CONTENT_MARGIN * 2) + 30;
+}
+
++ (UIFont *)textLabelFont {
+    return [UIFont boldSystemFontOfSize:13];
 }
 
 + (UIFont *)detailTextLabelFont {

@@ -9,6 +9,7 @@
 #import "FeedViewController.h"
 #import "FeedPostTableViewCell.h"
 #import "FeedPost.h"
+#import "SVProgressHUD.h"
 
 @interface FeedViewController ()
 
@@ -39,6 +40,7 @@
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self setRefreshControl:refreshControl];
     
+    [SVProgressHUD show];
     [_service queryForUpdatedFeed];
 }
 

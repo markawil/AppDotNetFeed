@@ -32,7 +32,6 @@
     
     NSURL *url = [NSURL URLWithString:URL_PATH];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [SVProgressHUD show];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
