@@ -86,7 +86,7 @@
     
     // we'll only allow 100 posts at a time in the TableView
     // this will work like a queue of the oldest being bumped out by the newest
-    if ([_items count] == 100) {
+    if ([_items count] >= 100) {
         [self removeLast20Items];
     }
     
