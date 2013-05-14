@@ -90,7 +90,8 @@
         [self removeLast20Items];
     }
     
-    [self addItemsPreventDuplicates:posts];
+    NSArray *postsReturned = [posts copy];
+    [self addItemsPreventDuplicates:postsReturned];
     [self sortPostsByDate:_items];
     [self.tableView reloadData];
 }
