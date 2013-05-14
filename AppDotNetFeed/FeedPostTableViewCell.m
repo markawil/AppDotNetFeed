@@ -107,7 +107,7 @@
     CGSize size = [feedPost.text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];    
     CGFloat height = MAX(size.height, 44.0f);
     
-    return height + (CELL_CONTENT_MARGIN * 2) + 27;
+    return height + (CELL_CONTENT_MARGIN * 2) + 30;
 }
 
 + (UIFont *)textLabelFont {
