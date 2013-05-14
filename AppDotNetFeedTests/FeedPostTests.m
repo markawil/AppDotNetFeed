@@ -28,7 +28,8 @@
                            @"avatar_image": avatar};
     NSDictionary *d = @{@"user": user,
                         @"created_at": @"2013-05-10T16:39:29Z",
-                        @"text": @"here's my post"};
+                        @"text": @"here's my post",
+                        @"id": @"123456"};
     return d;
 }
 
@@ -48,6 +49,11 @@
     [Assert that:_feedPost.authorName is:[Equal to:@"markw"]];
 }
 
+- (void)test_init_should_set_idNum_property_from_dictionary {
+ 
+    [Assert that:_feedPost.idString is:[Equal to:@"123456"]];
+}
+
 - (void)test_init_should_set_postDate_property_from_dictionary {
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:_feedPost.dateOfPost];
@@ -60,9 +66,18 @@
     [Assert that:[The int:year] is:[Equal to:[The int:2013]]];
 }
 
+- (void)test_override_of_isEquals_treats_2_FeedPosts_equal_if_idString_is_equal {
+    
+    FeedPost *fp1 = [[FeedPost alloc] initWithDictionary:@{@"id":@"123456"}];
+    FeedPost *fp2 = [[FeedPost alloc] initWithDictionary:@{@"id":@"123456"}];
+    
+    [Assert that:fp1 is:[Equal to:fp2]];
+}
+
 - (void)tearDown {
     
     [super tearDown];
+    _feedPost = nil;
 }
 
 @end

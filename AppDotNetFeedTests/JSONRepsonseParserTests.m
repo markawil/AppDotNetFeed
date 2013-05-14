@@ -49,6 +49,7 @@
 - (void)tearDown {
     
     [super tearDown];
+    _parserSUT = nil;
 }
 
 @end

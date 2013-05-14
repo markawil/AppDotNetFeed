@@ -88,9 +88,26 @@
         [self removeLast20Items];
     }
     
-    [_items addObjectsFromArray:posts];
+    [self addItemsPreventDuplicates:posts];
     [self sortPostsByDate:_items];
     [self.tableView reloadData];
+}
+
+- (void)addItemsPreventDuplicates:(NSArray *)posts {
+
+    if ([_items count] > 0) {
+        
+        for (FeedPost *feedPost in posts) {
+            
+            if (![_items containsObject:feedPost]) {
+                [_items addObject:feedPost];
+            }
+        }
+    }
+    else {
+        [_items addObjectsFromArray:posts];
+    }
+    
 }
 
 - (void)sortPostsByDate:(NSMutableArray *)feedPosts {

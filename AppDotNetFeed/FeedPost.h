@@ -16,5 +16,6 @@
 @property (readonly) NSURL *imageUrl;
 @property (readonly) NSString *authorName;
 @property (readonly) NSDate *dateOfPost;
+@property (readonly) NSString *idString;
 
 @end

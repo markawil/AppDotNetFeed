@@ -22,6 +22,7 @@
         _imageUrl = [NSURL URLWithString:avUrl];
         _authorName = user[@"username"];
         _dateOfPost = [FeedPost getDateFromString:dictionary[@"created_at"]];
+        _idString = dictionary[@"id"];
     }
     
     return self;
@@ -33,6 +34,16 @@
     [df setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ'"];
     NSDate *date = [df dateFromString:dateAsStr];
     return date;
+}
+
+- (BOOL)isEqual:(id)object {
+    
+    if ([object isKindOfClass:[FeedPost class]]) {
+        FeedPost *postToCompare = object;
+        return [postToCompare.idString isEqual:self.idString];
+    }
+    
+    return NO;
 }
 
 @end
